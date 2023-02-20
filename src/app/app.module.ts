@@ -17,11 +17,20 @@ import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProductsHeaderComponent } from './pages/home/components/products-header/products-header.component';
+import { FiltrosComponent } from './pages/home/components/filtros/filtros.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { ProductBoxComponent } from './pages/home/components/product-box/product-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    ProductsHeaderComponent,
+    FiltrosComponent,
+    ProductBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +46,8 @@ import { HeaderComponent } from './components/header/header.component';
     MatToolbarModule,
     MatTableModule,
     MatBadgeModule,
-    MatSnackBarModule    
+    MatSnackBarModule,
+    MatGridListModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
