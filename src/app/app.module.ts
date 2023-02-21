@@ -22,6 +22,7 @@ import { ProductsHeaderComponent } from './pages/home/components/products-header
 import { FiltrosComponent } from './pages/home/components/filtros/filtros.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ProductBoxComponent } from './pages/home/components/product-box/product-box.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProductBoxComponent } from './pages/home/components/product-box/product
     HomeComponent,
     ProductsHeaderComponent,
     FiltrosComponent,
-    ProductBoxComponent
+    ProductBoxComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
