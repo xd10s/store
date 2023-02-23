@@ -6,7 +6,7 @@
         <app-products-header (ContadorColumnas)="onColumnsCountChange($event)"></app-products-header>
         <mat-grid-list gutterSize="16" [cols]="columnas" [rowHeight]="filaAltura">
             <mat-grid-tile>
-                <app-product-box class="w-full" [fullWidthMode]="columnas === 1"></app-product-box>
+                <app-product-box (addToCart)="onAddToCart($event)"  [fullWidthMode]="columnas === 1"></app-product-box>
             </mat-grid-tile>
             <mat-grid-tile>
                 <app-product-box class="w-full" [fullWidthMode]="columnas === 1"></app-product-box>
