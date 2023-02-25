@@ -37,4 +37,40 @@ export class CartService {
     this.cart.next({ items: []});
     this._snackBar.open('Compra Eliminada', 'ok', {duration:3000});
   }
+
+  removeFromCart(item: CartItem, update = true): Array<CartItem>{
+    const filtroItems = this.cart.value.items.filter(
+      (_item) => _item.id !== item.id
+    );
+    
+    if(update){
+      this.cart.next({items: filtroItems})
+      this._snackBar.open('Producto Eliminado', 'ok', {duration:3000}); 
+    }
+
+    return filtroItems;    
+  }
+
+  removeCantidad(item: CartItem): void{
+    let itemForRemove: CartItem | undefined;
+
+    let filtroItems = this.cart.value.items.map((_item) => {
+      if(_item.id === item.id){
+        _item.cantidad--;
+
+        if (_item.cantidad === 0){
+          itemForRemove = _item
+        }
+      }
+
+      return _item;
+    });
+
+    if(itemForRemove){
+      filtroItems = this.removeFromCart(itemForRemove, false);
+
+    }
+    this.cart.next({items: filtroItems})
+    this._snackBar.open('1 producto ha sido eliminado del carrito', 'ok', {duration:3000});
+  }
 }

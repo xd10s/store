@@ -7,20 +7,7 @@ import { CartService } from 'src/app/services/cart.service';
   templateUrl: './cart.components.html'
 })
 export class CartComponent implements OnInit{
-  cart: Cart = {items: [{
-    producto: "https://via.placeholder.com/150",
-    nombre: "Zapatos",
-    precio: 150,
-    cantidad: 1,
-    id: 1
-  },
-  {
-    producto: "https://via.placeholder.com/150",
-    nombre: "Zapatos",
-    precio: 150,
-    cantidad: 3,
-    id: 1
-  }
+  cart: Cart = {items: [
 ]};
 
   dataSource: Array<CartItem> = [];
@@ -37,10 +24,31 @@ export class CartComponent implements OnInit{
   }
 
   ngOnInit(): void{
-    this.dataSource = this.cart.items;
+    
+    this.cartService.cart.subscribe((_cart: Cart) => {
+      this.cart = _cart;
+      this.dataSource = this.cart.items;
+    });
   }
 
   getTotal(items: Array<CartItem>): number{
     return this.cartService.getTotal(items); 
   }
+
+  onClearCart(): void{
+    this.cartService.clearCart();
+  }
+
+  onRemoveFromCart(item: CartItem): void{
+    this.cartService.removeFromCart(item);
+  }
+
+  onAddCantidad(item: CartItem): void{
+    this.cartService.addToCart(item);
+  }
+
+  onRemoveCantidad(item: CartItem): void{
+    this.cartService.removeCantidad(item);
+  }
+
 }
