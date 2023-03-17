@@ -7,15 +7,7 @@ import { Producto } from 'src/app/modelos/producto.model';
 })
 export class ProductBoxComponent {
 
-  producto: Producto | undefined = {
-    id: 1,
-    nombre: 'converse',
-    precio: 100,
-    categoria: 'ropa',
-    descripcion: 'aaaaaaaaaaaa',
-    img: 'https://via.placeholder.com/150',
-  }
-
+  @Input() producto: Producto | undefined;
   @Input() fullWidthMode = false;
   @Output() addToCart = new EventEmitter();
 
